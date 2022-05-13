@@ -1,0 +1,14 @@
+{
+  "generator-ui5-ts-app": {
+    "application": "ui5die",
+    "namespace": "miyasuta",
+    "framework": "SAPUI5",
+    "frameworkVersion": "1.99.2",
+    "author": "Mio Yasutake",
+    "tstypes": "@sapui5/ts-types-esm",
+    "tstypesVersion": "1.99.2",
+    "appId": "miyasuta.ui5die",
+    "appURI": "miyasuta/ui5die",
+    "setupCompleted": true
+  }
+}
