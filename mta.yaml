@@ -1,0 +1,83 @@
+ID: ui5die
+_schema-version: 3.2.0
+version: 0.0.1
+parameters:
+  enable-parallel-deployments: true
+modules:
+  - name: ui5die_deployer
+    type: com.sap.application.content
+    path: .
+    requires:
+      - name: ui5die_html5_repo_host
+        parameters:
+          content-target: true
+    build-parameters:
+      build-result: resources
+      requires:
+        - name: ui5die
+          artifacts:
+            - dist/ui5die.zip
+          target-path: resources/
+  - name: ui5die
+    type: html5
+    path: .
+    build-parameters:
+      builder: custom
+      commands:
+        - npm install
+        - npm run build
+      supported-platforms: []  
+
+  - name: ui5die_destination-content
+    type: com.sap.application.content
+    build-parameters:
+      no-source: true
+    requires:
+      - name: ui5die_uaa
+        parameters:
+          service-key:
+            name: ui5die_uaa-key
+      - name: ui5die_html5_repo_host
+        parameters:
+          service-key:
+            name: ui5die_html5_repo_host-key
+      - name: ui5die_destination
+        parameters:
+          content-target: true
+    parameters:
+      content:
+        instance:
+          existing_destinations_policy: update
+          destinations:
+            - Name: ui5die_html5_repo_host
+              ServiceInstanceName: ui5die_html5_repo_host
+              ServiceKeyName: ui5die_html5_repo_host-key
+              sap.cloud.service: ui5die.service
+            - Name: ui5die_uaa
+              Authentication: OAuth2UserTokenExchange
+              ServiceInstanceName: ui5die_uaa
+              ServiceKeyName: ui5die_uaa-key
+              sap.cloud.service: ui5die.service 
+
+resources:
+  - name: ui5die_destination
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: lite
+      service: destination
+      config:
+        HTML5Runtime_enabled: true
+        version: 1.0.0
+  - name: ui5die_html5_repo_host
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: app-host
+      service: html5-apps-repo
+      config:
+        sizeLimit: 2
+  - name: ui5die_uaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      path: ./xs-security.json
+      service-plan: application
+      service: xsuaa                           

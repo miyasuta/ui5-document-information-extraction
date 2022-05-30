@@ -1,0 +1,49 @@
+<core:FragmentDefinition
+	xmlns="sap.uxap"
+	xmlns:m="sap.m"
+	xmlns:core="sap.ui.core">
+
+	<ObjectPageLayout id="objectPage"
+		upperCaseAnchorBar="false"
+		showFooter="{viewModel>/editable}">
+		<headerTitle>
+			<ObjectPageDynamicHeaderTitle>
+				<content>
+					<m:MessageStrip id="messageStrip" visible="{viewModel>/refreshEnabled}"
+						text="{i18n>refreshMessage}" type="Warning" showIcon="true">
+					</m:MessageStrip>				
+				</content>
+				<actions>
+					<m:Button type="Emphasized" text="{i18n>refresh}" press="onRefresh" visible="{viewModel>/refreshEnabled}"/>
+				</actions>
+			</ObjectPageDynamicHeaderTitle>
+		</headerTitle>
+		<sections>
+			<ObjectPageSection title="{i18n>header}" titleUppercase="false">
+				<subSections>
+					<ObjectPageSubSection>
+						<blocks>
+							<core:Fragment fragmentName="miyasuta.ui5die.fragment.InvoiceHeader" type="XML" />
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection title="{i18n>items}" titleUppercase="false">
+				<subSections>
+					<ObjectPageSubSection>
+						<blocks>
+							<core:Fragment fragmentName="miyasuta.ui5die.fragment.InvoiceItems" type="XML" />
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>			
+		</sections>
+		<footer>
+			<m:OverflowToolbar>
+				<m:ToolbarSpacer />
+				<m:Button type="Emphasized" text="{i18n>save}" press="onSave" />
+			</m:OverflowToolbar>
+		</footer>
+
+	</ObjectPageLayout>
+</core:FragmentDefinition>    

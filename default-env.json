@@ -1,0 +1,15 @@
+{
+    "VCAP_SERVICES": {
+      "xsuaa": [
+        {
+          "credentials": {
+            "clientid": "sb-auth-transport!t113913",
+            "clientsecret": "YHyGIHOTC4wUaBFU7aBsg432T+Q=",
+            "url": "https://9e9ab65etrial.authentication.eu10.hana.ondemand.com"
+          },
+          "label": "xsuaa",
+          "tags": ["xsuaa"]
+        }
+      ]
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "clientId": "default",
+    "extraction": {
+        "headerFields": [
+            "documentNumber",
+            "purchaseOrderNumber",
+            "documentDate",
+            "dueDate",
+            "grossAmount",
+            "currencyCode"
+        ],
+        "lineItemFields": [
+            "description",
+            "quantity",
+            "unitOfMeasure",
+            "unitPrice",
+            "netAmount"
+        ]
+    },
+    "documentType": "invoice"    
+}

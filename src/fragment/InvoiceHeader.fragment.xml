@@ -1,0 +1,52 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+
+	<f:SimpleForm id="invoiceHeader" busy="{viewModel>/refreshEnabled}"
+		editable="true"
+		layout="ResponsiveGridLayout"
+		labelSpanXL="3"
+		labelSpanL="3"
+		labelSpanM="3"
+		labelSpanS="12"
+		adjustLabelSpan="false"
+		emptySpanXL="4"
+		emptySpanL="4"
+		emptySpanM="4"
+		emptySpanS="0"
+		columnsXL="1"
+		columnsL="1"
+		columnsM="1"
+		singleContainerFullSize="false" >
+		<f:content>
+			<Label text="{i18n>documentNumber}" />
+			<Input id="documentNumber" value="{invoice>/header/documentNumber}" 
+			editable="{viewModel>/editable}"/>
+
+			<Label text="{i18n>purchaseOrderNumber}" />
+			<Input id="purchaseOrderNumber" value="{invoice>/header/purchaseOrderNumber}" 
+			editable="{viewModel>/editable}"/> 
+
+			<Label text="{i18n>documentDate}" />
+			<DatePicker id="documentDate" value="{invoice>/header/documentDate}" 
+			editable="{viewModel>/editable}"
+			valueFormat="yyyy-MM-dd"/> 
+
+			<Label text="{i18n>dueDate}" />
+			<DatePicker id="dueDate" value="{invoice>/header/dueDate}"
+			editable="{viewModel>/editable}"
+			valueFormat="yyyy-MM-dd"/>
+
+			<Label text="{i18n>grossAmount}" />
+			<Input id="grossAmount" value="{invoice>/header/grossAmount}"
+			editable="{viewModel>/editable}"/> 
+
+			<Label text="{i18n>currencyCode}" />
+			<Input id="currencyCode" value="{invoice>/header/currencyCode}" 
+			editable="{viewModel>/editable}"/>                 
+
+		</f:content>
+	</f:SimpleForm>
+</core:FragmentDefinition>    

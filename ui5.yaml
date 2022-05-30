@@ -19,3 +19,11 @@ server:
       extraExts: "xml,json,properties"
       port: 35729
       path: "webapp"
+      
+builder:
+  customTasks:
+    -  name: ui5-task-zipper
+       afterTask: uglify
+       configuration:
+         includeDependencies: false
+         archiveName: ui5die      

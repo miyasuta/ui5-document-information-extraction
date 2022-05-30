@@ -9,7 +9,20 @@
 		"description": "{{app_description}}",
 		"applicationVersion": {
 			"version": "1.0.0"
-		}
+		},        
+		"crossNavigation": {
+			"inbounds": {
+			  "intent1": {
+				"signature": {
+				  "parameters": {},
+				  "additionalParameters": "allowed"
+				},
+				"semanticObject": "DocumentInformation",
+				"action": "upload",
+				"title": "TypeScript Sample"
+			  }
+			}
+		  }
 	},
 
 	"sap.ui": {
@@ -55,6 +68,10 @@
 				"settings": {
 					"bundleName": "miyasuta.ui5die.i18n.i18n"
 				}
+			},
+			"options": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "model/Options.json"
 			}
 		},
 
@@ -81,5 +98,8 @@
 				}
 			}
 		}
-	}
+	},
+    "sap.cloud": {
+      "service": "ui5die.service"
+    }
 }
