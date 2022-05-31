@@ -4,7 +4,7 @@ To run this app, it needs to be deployed to Cloud Foundry.
 
 ## Prerequisites
 1. An instance of Document Information Extraction and its service key (you can run [booster](https://developers.sap.com/tutorials/cp-aibus-dox-booster-app.html) to create them automatically)
-2. Destination pointing to Document Information Extraction API (Please see [my blog post]() for details)
+2. Destination pointing to Document Information Extraction API (Please see [my blog post](https://blogs.sap.com/2022/05/31/integrate-document-information-extraction-into-ui5-application/) for details)
 
 ## Build & Deploy
 1. Run `mbt build` to build the app. (* )
