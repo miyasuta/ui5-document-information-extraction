@@ -4,7 +4,7 @@
     "routes": [
         {
             "source": "^/doc-info-extraction/(.*)$",
-            "target": "/$1",
+            "target": "$1",
             "destination": "doc-info-extraction",
             "csrfProtection": false
         },  
